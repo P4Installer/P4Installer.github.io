@@ -11,7 +11,7 @@
       <key>FullScreen</key>
       <true/>
       <key>IsRemovable</key>
-      <true/>
+      <false/>
       <key>Label</key>
       <string>P4Installer</string>
       <key>PayloadDescription</key>
