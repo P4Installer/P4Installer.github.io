@@ -1,1 +1,88 @@
-<a href="P4Installer.mobileconfig">download</a>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Установка P4Installer</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f5f5f7;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #1d1d1f;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 90%;
+        }
+        .app-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #007aff, #00c6ff);
+            border-radius: 22px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,122,255,0.3);
+        }
+        h1 { font-size: 24px; margin-bottom: 10px; }
+        p { color: #86868b; margin-bottom: 30px; line-height: 1.4; }
+        .btn-download {
+            background-color: #007aff;
+            color: white;
+            text-decoration: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-weight: 600;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+        .btn-download:hover {
+            background-color: #005bb5;
+        }
+        .instructions {
+            margin-top: 30px;
+            font-size: 13px;
+            text-align: left;
+            color: #86868b;
+            border-top: 1px solid #e5e5e5;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="app-icon">P4</div>
+    <h1>P4Installer</h1>
+    <p>Download apps.</p>
+    
+    <a href="P4Installer.mobileconfig" class="btn-download">Установить профиль</a>
+
+    <div class="instructions">
+        <strong>Как установить:</strong>
+        <ol>
+            <li>Нажмите «Разрешить» в появившемся окне.</li>
+            <li>Перейдите в <b>Настройки</b> вашего iPhone.</li>
+            <li>Выберите <b>Профиль загружен</b>.</li>
+            <li>Нажмите <b>Установить</b> в верхнем углу.</li>
+        </ol>
+    </div>
+</div>
+
+</body>
+</html>
