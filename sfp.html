@@ -1,1 +1,158 @@
-<a href="itms-services://?action=download-manifest&url=https://P4Installer.github.io/13.plist">download feather</a>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P4Installer</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Шапка магазина */
+        header {
+            width: 100%;
+            padding: 25px 0;
+            text-align: center;
+            background: #1c1c1e;
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header h1 { margin: 0; font-size: 28px; font-weight: 700; }
+        header p { margin: 5px 0 0; color: #a1a1a6; font-size: 15px; }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin-top: 25px;
+            padding-bottom: 50px;
+        }
+
+        /* Разделитель разделов */
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 30px 0 15px 10px;
+            color: #fff;
+        }
+
+        /* Карточка приложения */
+        .app-card {
+            background: #1c1c1e;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #333;
+            transition: background 0.2s;
+        }
+        .app-card:hover {
+            background: #252527;
+        }
+
+        .app-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            margin-right: 20px;
+            background: linear-gradient(135deg, #444, #222);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            border: 1px solid #444;
+        }
+
+        .app-info { flex-grow: 1; }
+        .app-title { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+        .app-desc { font-size: 13px; color: #a1a1a6; margin-bottom: 10px; }
+
+        .btn {
+            background-color: #0a84ff;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+        .btn:hover { background-color: #409cff; }
+        
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 12px;
+            background-color: #333;
+            color: #fff;
+        }
+        .btn-small:hover { background-color: #444; }
+
+        /* Раздел сертификатов */
+        .certs-section {
+            background: #1c1c1e;
+            border-radius: 20px;
+            padding: 10px 20px;
+            border: 1px solid #333;
+            margin-top: 20px;
+        }
+        .cert-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+        }
+        .cert-item:last-child { border-bottom: none; }
+        .cert-name { font-size: 15px; color: #fff; font-weight: 500;}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>P4Installer</h1>
+        <p>App Store Client</p>
+    </header>
+
+    <div class="container">
+
+        <div class="section-title">Приложения</div>
+
+        <div class="app-card">
+            <div class="app-icon">🪶</div>
+            <div class="app-info">
+                <div class="app-title">Feather</div>
+                <div class="app-desc">Менеджер файлов и загрузок</div>
+                <a href="itms-services://?action=download-manifest&url=https://P4Installer.github.io/13.plist" class="btn">Установить</a>
+            </div>
+        </div>
+
+        <div class="section-title">Сертификаты</div>
+
+        <div class="certs-section">
+            <div class="cert-item">
+                <span class="cert-name">Forevermark (Shanghai)</span>
+                <a href="Forevermark%20%20Marketing(Shanghai%20)%20Limited.zip" class="btn btn-small">Скачать</a>
+            </div>
+            
+            <div class="cert-item">
+                <span class="cert-name">AppleJR Certificate</span>
+                <a href="#" class="btn btn-small">Скачать</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
