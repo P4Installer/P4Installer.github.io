@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>P4Installer</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #000000;
-            color: #ffffff;
+        /* Глобальный сброс отступов, чтобы убрать белые полосы */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            background-color: #000000; /* Черный фон для всей страницы */
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+        }
+
+        body {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -19,16 +28,16 @@
         /* Шапка магазина */
         header {
             width: 100%;
-            padding: 25px 0;
+            padding: 30px 0;
             text-align: center;
             background: #1c1c1e;
             border-bottom: 1px solid #333;
+            /* Убеждаемся, что шапка прилипает к самому верху */
             position: sticky;
             top: 0;
             z-index: 1000;
         }
         header h1 { margin: 0; font-size: 28px; font-weight: 700; }
-        header p { margin: 5px 0 0; color: #a1a1a6; font-size: 15px; }
 
         .container {
             width: 90%;
@@ -37,84 +46,76 @@
             padding-bottom: 50px;
         }
 
-        /* Разделитель разделов */
         .section-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin: 30px 0 15px 10px;
-            color: #fff;
+            font-size: 22px;
+            font-weight: 700;
+            margin: 30px 0 15px 5px;
         }
 
-        /* Карточка приложения */
         .app-card {
             background: #1c1c1e;
-            border-radius: 20px;
-            padding: 20px;
+            border-radius: 22px;
+            padding: 16px 20px;
             margin-bottom: 15px;
             display: flex;
             align-items: center;
-            border: 1px solid #333;
+            border: 1px solid #2c2c2e;
             transition: background 0.2s;
         }
         .app-card:hover {
-            background: #252527;
+            background: #2c2c2e;
         }
 
         .app-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 18px;
-            margin-right: 20px;
-            background: linear-gradient(135deg, #444, #222);
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            margin-right: 15px;
+            background: linear-gradient(135deg, #3a3a3c, #1c1c1e);
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 32px;
-            border: 1px solid #444;
+            font-size: 28px;
+            font-weight: bold;
+            border: 1px solid #3a3a3c;
         }
 
         .app-info { flex-grow: 1; }
-        .app-title { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
-        .app-desc { font-size: 13px; color: #a1a1a6; margin-bottom: 10px; }
+        .app-title { font-size: 18px; font-weight: 600; margin-bottom: 2px; }
+        .app-desc { font-size: 13px; color: #8e8e93; margin-bottom: 8px; }
 
         .btn {
-            background-color: #0a84ff;
+            background-color: #007aff;
             color: white;
             text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 15px;
+            padding: 8px 18px;
+            border-radius: 18px;
             font-weight: 600;
             font-size: 14px;
-            transition: background 0.3s;
-            display: inline-block;
+            transition: opacity 0.2s;
         }
-        .btn:hover { background-color: #409cff; }
+        .btn:active { opacity: 0.7; }
         
         .btn-small {
-            padding: 8px 16px;
-            font-size: 12px;
-            background-color: #333;
-            color: #fff;
+            background-color: #3a3a3c;
+            font-size: 13px;
         }
-        .btn-small:hover { background-color: #444; }
 
-        /* Раздел сертификатов */
         .certs-section {
             background: #1c1c1e;
-            border-radius: 20px;
-            padding: 10px 20px;
-            border: 1px solid #333;
-            margin-top: 20px;
+            border-radius: 22px;
+            padding: 5px 20px;
+            border: 1px solid #2c2c2e;
         }
         .cert-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 0;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid #2c2c2e;
         }
         .cert-item:last-child { border-bottom: none; }
-        .cert-name { font-size: 15px; color: #fff; font-weight: 500;}
+        .cert-name { font-size: 15px; color: #efeff4; }
 
     </style>
 </head>
@@ -125,23 +126,22 @@
     </header>
 
     <div class="container">
-
         <div class="section-title">Приложения</div>
 
         <div class="app-card">
-            <div class="app-icon">F</div>
+            <div class="app-icon" style="background: linear-gradient(135deg, #FF9500, #FF5E00);">F</div>
             <div class="app-info">
                 <div class="app-title">Feather</div>
-                <div class="app-desc">Установка неофициальных приложений.</div>
+                <div class="app-desc">Подпись и установка IPA файлов.</div>
                 <a href="itms-services://?action=download-manifest&url=https://P4Installer.github.io/13.plist" class="btn">Установить</a>
             </div>
         </div>
         
         <div class="app-card">
-            <div class="app-icon">E</div>
+            <div class="app-icon" style="background: linear-gradient(135deg, #5856D6, #AF52DE);">E</div>
             <div class="app-info">
                 <div class="app-title">Esign</div>
-                <div class="app-desc">Установка неофициальных приложений.</div>
+                <div class="app-desc">Подпись и установка IPA файлов.</div>
                 <a href="itms-services://?action=download-manifest&url=https://P4Installer.github.io/10.plist" class="btn">Установить</a>
             </div>
         </div>
@@ -150,13 +150,10 @@
 
         <div class="certs-section">
             <div class="cert-item">
-                <span class="cert-name">Forevermark  Marketing(Shanghai ) Limited (zip)</span>
+                <span class="cert-name">Forevermark Shanghai (ZIP)</span>
                 <a href="ForevermarkMarketing(Shanghai)Limited.zip" class="btn btn-small">Скачать</a>
             </div>
-            
-
         </div>
-
     </div>
 
 </body>
