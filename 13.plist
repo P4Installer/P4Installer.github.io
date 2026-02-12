@@ -15,13 +15,13 @@
 <key>metadata</key>
 <dict>
 <key>bundle-identifier</key>
-<string>kh.crysalis.feather</string>
+<string>kh.crysalis.nugget</string>
 <key>bundle-version</key>
 <string>5.0.0</string>
 <key>kind</key>
 <string>software</string>
 <key>title</key>
-<string>Feather</string>
+<string>Feathers</string>
 </dict>
 </dict>
 </array>
