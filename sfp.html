@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>P4Installer</title>
     <style>
-        /* Глобальный сброс отступов, чтобы убрать белые полосы */
+        /* Глобальный сброс отступов */
         * {
             margin: 0;
             padding: 0;
@@ -13,7 +13,7 @@
         }
 
         html, body {
-            background-color: #000000; /* Черный фон для всей страницы */
+            background-color: #000000;
             color: #ffffff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             min-height: 100vh;
@@ -25,14 +25,12 @@
             align-items: center;
         }
 
-        /* Шапка магазина */
         header {
             width: 100%;
             padding: 30px 0;
             text-align: center;
             background: #1c1c1e;
             border-bottom: 1px solid #333;
-            /* Убеждаемся, что шапка прилипает к самому верху */
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -60,10 +58,6 @@
             display: flex;
             align-items: center;
             border: 1px solid #2c2c2e;
-            transition: background 0.2s;
-        }
-        .app-card:hover {
-            background: #2c2c2e;
         }
 
         .app-icon {
@@ -71,20 +65,21 @@
             height: 64px;
             border-radius: 14px;
             margin-right: 15px;
-            background: linear-gradient(135deg, #3a3a3c, #1c1c1e);
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 28px;
             font-weight: bold;
             border: 1px solid #3a3a3c;
+            flex-shrink: 0;
         }
 
         .app-info { flex-grow: 1; }
         .app-title { font-size: 18px; font-weight: 600; margin-bottom: 2px; }
-        .app-desc { font-size: 13px; color: #8e8e93; margin-bottom: 8px; }
+        .app-desc { font-size: 13px; color: #8e8e93; margin-bottom: 10px; }
 
         .btn {
+            display: inline-block;
             background-color: #007aff;
             color: white;
             text-decoration: none;
@@ -92,9 +87,7 @@
             border-radius: 18px;
             font-weight: 600;
             font-size: 14px;
-            transition: opacity 0.2s;
         }
-        .btn:active { opacity: 0.7; }
         
         .btn-small {
             background-color: #3a3a3c;
@@ -107,6 +100,7 @@
             padding: 5px 20px;
             border: 1px solid #2c2c2e;
         }
+        
         .cert-item {
             display: flex;
             justify-content: space-between;
@@ -115,7 +109,7 @@
             border-bottom: 1px solid #2c2c2e;
         }
         .cert-item:last-child { border-bottom: none; }
-        .cert-name { font-size: 15px; color: #efeff4; }
+        .cert-name { font-size: 15px; color: #efeff4; padding-right: 10px; }
 
     </style>
 </head>
@@ -144,8 +138,7 @@
                 <div class="app-desc">Подпись и установка IPA файлов.</div>
                 <a href="itms-services://?action=download-manifest&url=https://P4Installer.github.io/10.plist" class="btn">Установить</a>
             </div>
-
-    
+        </div>
 
         <div class="section-title">Сертификаты</div>
 
