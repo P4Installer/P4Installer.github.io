@@ -3,71 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P4Installer - Установка приложений</title>
+    <title>P4Installer — Установка приложений</title>
     <style>
+        :root {
+            --primary-color: #0071e3;
+            --bg-color: #000000;
+            --card-bg: rgba(28, 28, 30, 0.7);
+            --text-main: #ffffff;
+            --text-secondary: #a1a1a6;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #1c1c1e; /* Черный фон */
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 0% 0%, #1d1d1f 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, #002d5a 0%, transparent 50%);
             margin: 0;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            color: #ffffff; /* Белый текст */
+            color: var(--text-main);
+            overflow: hidden;
         }
+
+        /* Плавное появление контента */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .container {
             text-align: center;
-            background: #1c1c1e; /* Темно-серый контейнер */
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            max-width: 400px;
-            width: 90%;
-            border: 1px solid #333;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px); /* Для Safari */
+            padding: 40px 30px;
+            border-radius: 32px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            max-width: 380px;
+            width: 85%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeInUp 0.8s ease-out;
         }
+
         .app-icon {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #5e5e5e, #1a1a1a);
-            border-radius: 22px;
-            margin: 0 auto 20px;
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #3a3a3c 0%, #000000 100%);
+            border-radius: 20px;
+            margin: 0 auto 24px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 40px;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            border: 2px solid #333;
+            font-size: 36px;
+            font-weight: 800;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
         }
-        h1 { font-size: 28px; margin-bottom: 10px; font-weight: 700; }
-        p { color: #a1a1a6; margin-bottom: 30px; line-height: 1.5; font-size: 16px; }
+
+        /* Эффект блеска на иконке */
+        .app-icon::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 4s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            20%, 100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        h1 { 
+            font-size: 28px; 
+            margin: 0 0 10px; 
+            font-weight: 700; 
+            letter-spacing: -0.5px;
+        }
+
+        p { 
+            color: var(--text-secondary); 
+            margin-bottom: 32px; 
+            line-height: 1.4; 
+            font-size: 16px; 
+            padding: 0 10px;
+        }
+
         .btn-download {
-            background-color: #0a84ff; /* Ярко-синяя кнопка для контраста */
+            background-color: var(--primary-color);
             color: white;
             text-decoration: none;
-            padding: 16px 40px;
-            border-radius: 28px;
+            padding: 14px 0;
+            width: 100%;
+            border-radius: 14px;
             font-weight: 600;
-            display: inline-block;
-            transition: background 0.3s;
+            display: block;
+            transition: all 0.2s ease;
             font-size: 17px;
+            box-shadow: 0 4px 15px rgba(0, 113, 227, 0.3);
         }
-        .btn-download:hover {
-            background-color: #409cff;
+
+        .btn-download:active {
+            transform: scale(0.97);
+            filter: brightness(1.1);
         }
+
         .instructions {
-            margin-top: 35px;
+            margin-top: 32px;
             font-size: 14px;
             text-align: left;
-            color: #a1a1a6;
-            border-top: 1px solid #333;
-            padding-top: 20px;
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 18px;
         }
-        .instructions ol { padding-left: 20px; }
-        .instructions li { margin-bottom: 8px; }
-        b { color: #ffffff; }
+
+        .instructions strong {
+            display: block;
+            margin-bottom: 12px;
+            color: #fff;
+            font-size: 15px;
+        }
+
+        .instructions ol { 
+            padding-left: 18px; 
+            margin: 0;
+        }
+
+        .instructions li { 
+            margin-bottom: 10px; 
+        }
+
+        .instructions li:last-child { margin-bottom: 0; }
+
+        b { color: var(--primary-color); }
+
+        /* Футер для солидности */
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 12px;
+            color: #424245;
+        }
     </style>
 </head>
 <body>
@@ -75,20 +159,22 @@
 <div class="container">
     <div class="app-icon">P4</div>
     <h1>P4Installer</h1>
-    <p>Получите доступ к эксклюзивным приложениям. Установите профиль, чтобы начать.</p>
+    <p>Доступ к премиум-контенту и системным инструментам в один клик.</p>
     
     <a href="P4Installer.mobileconfig" class="btn-download">Установить профиль</a>
 
     <div class="instructions">
-        <strong>Как установить:</strong>
+        <strong>Инструкция по установке:</strong>
         <ol>
-            <li>Нажмите кнопку «Установить профиль».</li>
-            <li>Нажмите <b>Разрешить</b> в появившемся окне.</li>
-            <li>Перейдите в <b>Настройки</b> &gt; <b>Профиль загружен</b>.</li>
-            <li>Нажмите <b>Установить</b> и введите пароль устройства.</li>
+            <li>Нажмите на синюю кнопку выше</li>
+            <li>Выберите <b>Разрешить</b> в окне Safari</li>
+            <li>Откройте <b>Настройки</b> профиля</li>
+            <li>Подтвердите установку кнопкой <b>Установить</b></li>
         </ol>
     </div>
 </div>
+
+<div class="footer">© 2024 P4Installer. Все права защищены.</div>
 
 </body>
 </html>
